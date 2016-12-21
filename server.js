@@ -18,7 +18,10 @@ function sendFile(response, filePath, fileContents){
     {'Content-type': mime.lookup(path.basename(filePath))}
   );
   response.end(fileContents);
+  
 }
+
+
 // 3) checks if file is cached, if not tries to get it from the disk
 function serveStatic(response, cache, absPath){
   if (cache[absPath]){ //check if file is cached in memory
