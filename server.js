@@ -18,7 +18,7 @@ function sendFile(response, filePath, fileContents){
     {'Content-type': mime.lookup(path.basename(filePath))}
   );
   response.end(fileContents);
-  
+
 }
 
 
@@ -66,3 +66,7 @@ const server = http.createServer((request, response) =>{
 server.listen(3000, ()=>{
   console.log("listening on port 3000");
 })
+
+// Part 4: Setting up Socket.IO server
+var chatServer = require('./lib/chat_server');
+chatServer.listen(server);
